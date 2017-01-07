@@ -1,0 +1,39 @@
+//作者QQ：2698295603 淘宝：https://zaixuasd.taobao.com/  致力于金融数据
+
+1.首先搭建php+mysql运行环境，建议使用Phpstudy一键包  选择apacher+php5.3
+
+2.新建mysql数据库，运行“数据库结构”文件，还原数据表结构
+
+3.配置 db.php文件中数据库连接信息
+
+4.服务器端运行  网址+cron.html  一直保持运行
+	例如 网站地址为 http://www.365keke.com  本系统文件在 hangqing目录下 则运行 http://www.365keke.com/hangqing/cron.html
+
+5.检查数据库是否正常存储
+
+ 
+文件解释：
+	1.直接调用新浪，生成json
+	hq_AG1612.php  hq_AU0.php hq_CU1609.php hq_CL.php
+	
+	2.调用本地存储最新数据，生成json
+	json_AG1612.php json_AU0.php json_CU1609.php
+
+	3.采集新浪数据，存入本地数据库
+	cron.html	Cron_sqlhq.php  
+
+	4.本地数据库配置文件
+	db.php
+
+返回json数据格式说明
+[
+    "铜",  产品名称
+    "38300",  现价
+    "70",  涨跌幅（为负显示为-）
+    "0.18%", 涨跌率
+    "37790", 开盘价
+    "38230", 最高价
+    "37790", 最低价
+    "38550", 昨日收盘价
+    "2016-07-19 20:48:17" 数据时间
+]

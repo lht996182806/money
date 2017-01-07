@@ -1,0 +1,64 @@
+
+                <!-- ngView: undefined -->
+
+<div class="scrollable ng-scope" style="padding-top: 6px; ">
+    <div class="scrollable-header section" style="padding:3px 8px">
+        
+    </div>
+
+    <div class="scrollable-content section overthrow" style="padding:3px 8px">
+        <div class="panel">
+    <div class="panel-heading">交易历史</div>
+    <div class="panel-body" style="font-size:12px;padding: 8px 0">
+        <table class="table table-condensed">
+            <tbody><tr>
+                <td style="text-align:center;width:33.3%;">
+                    <label class="control-label">总单数</label>
+                    <span class="form-control">{$trading.count}</span>
+                </td>
+                <td style="text-align:center;width:33.3%;">
+                    <label class="control-label">总手数</label>
+                    <span class="form-control">{$trading.onumber}</span>
+                </td>
+                <td style="text-align:center;width:33.3%;">
+                    <label class="control-label">总盈亏</label>
+                    <span class="form-control" style="color:#CD0000;">
+                     <if condition="$trading.money gt 0">
+         +{$trading.money|round=2}<else/>
+          {$trading.money|round=2}
+          </if>
+                    </span>
+                </td>
+            </tr>
+        </tbody></table>
+        <volist name="list" id="vo">
+         <table class="table table-condensed table-striped">
+			<tr>
+				<td rowspan='2' class='middle'>{$vo.selltime|date='Y-m-d',###}</td>
+				<td>{$vo.ptitle} </td>
+				<td rowspan='2' class='red middle'>
+				 <if condition="$vo['ploss'] gt 0">+
+                        {$vo['ploss']}<else/>
+                         {$vo['ploss']}</if>
+				</td>
+			</tr>
+			<tr>
+				<td>{$vo.onumber} 手 <span class='red'>买 <if condition="$vo.ostyle eq 1">跌<else/>涨</if></span></td>
+			</tr>
+        </table>
+        </volist>
+        <div style="padding-left: 8px;">
+            <div class="btn-group">
+<php>for($i = 1;$i<=$pagecount;$i++){</php>
+<a class="btn btn-default btn-sm " ui-class="<php>if($py == $i){</php>{'active':true}<php>}</php>" ng-click="pager(<php>echo $i;</php>)"><php>echo $i;</php></a>
+<php>}</php>
+</div>
+
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    
+</div>

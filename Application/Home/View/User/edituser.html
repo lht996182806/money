@@ -1,0 +1,50 @@
+
+                <!-- ngView: undefined -->
+<form id="reviseForm" class="i-form" method="post" action="{:U('User/edituser')}">
+<div class="scrollable ng-scope" style="padding-top: 6px; ">
+    <div class="scrollable-header section" style="padding:3px 8px">
+        
+    </div>
+
+    <div class="scrollable-content section overthrow" style="padding:3px 8px">
+        <div class="container-fluid">
+    <div class="row field-row">
+        <div class="col-xs-4 field-label">
+            <label class="control-label">原交易密码：</label>
+        </div>
+        <div class="col-xs-8 field ng-isolate-scope" focus-input="">
+            <input ng-model="vm.TransactionPassword" type="password" name="upwd" class="form-control ng-pristine ng-untouched ng-valid needsclick">
+        </div>
+    </div>
+    <div class="row field-row">
+        <div class="col-xs-4 field-label">
+            <label class="control-label">新交易密码：</label>
+        </div>
+        <div class="col-xs-8 field ng-isolate-scope" focus-input="">
+            <input ng-model="vm.NewTransactionPassword" name="newpwd" type="password" class="form-control ng-pristine ng-untouched ng-valid needsclick">
+        </div>
+    </div>
+    <div class="row field-row">
+        <div class="col-xs-4 field-label">
+            <label class="control-label">再次确认：</label>
+        </div>
+        <div class="col-xs-8 field ng-isolate-scope" focus-input="">
+            <input ng-model="vm.ConfirmNewTransactionPassword"  name="mypwd" type="password" class="form-control ng-pristine ng-untouched ng-valid needsclick">
+        </div>
+    </div>
+    <div class="row field-row">
+        <!-- ngRepeat: alert in alerts -->
+    </div>
+    <div class="row">
+        <button class="btn btn-primary btn-block" ng-disabled="btnChangeDisabled" type="submit">确定</button>
+    </div>
+</div>
+
+
+    </div>
+
+    
+</div>
+            </div>
+            </form>
+  

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>数据采集</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+function SetCwinHeight(iframeObj){
+	if (document.getElementById){
+		if (iframeObj && !window.opera){
+			if (iframeObj.contentDocument && iframeObj.contentDocument.body.offsetHeight){
+				iframeObj.height = iframeObj.contentDocument.body.offsetHeight;
+			}else if(document.frames[iframeObj.name].document && document.frames[iframeObj.name].document.body.scrollHeight){
+				iframeObj.height = document.frames[iframeObj.name].document.body.scrollHeight;
+			}
+		}
+	}
+}
+</script>
+</head>
+<body>
+<h1>程序运行中，请勿关闭页面</h1>
+<h2 ><input type="button" id="wangji_time" value="" /></h2>
+<h3>power by  http://zaixuasd.taobao.com</h3>
+<iframe name="frameContent" id="fetchprocess" src="Cron_sqlhq.php" frameborder="0" width="100%" onload="SetCwinHeight(this)"></iframe>
+<input type="hidden" id="lastmove" value="" />
+<input type="hidden" id="cms" value="" />
+<script type="text/JavaScript">
+function checkmove()
+{
+		document.getElementById("fetchprocess").src="Cron_sqlhq.php?cm="+Math.random()*1000;
+	var nowtime=new Date().toLocaleString();
+	document.getElementById("wangji_time").value=nowtime; 
+	console.log(nowtime);
+	 
+	setTimeout("checkmove();",1000);
+}
+setTimeout("checkmove();",1000);
+</script>
+</body>
+</html>
