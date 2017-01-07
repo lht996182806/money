@@ -7,14 +7,14 @@
     <div class="row">
             <div class="col-xs-4" style="padding: 2px 1px 2px 0;">
                 <div class="btn btn-block" ng-click="changeGoods('AG', 2)" style="padding:0; line-height:24px;">
-                    <div style="font-size:12px; ">人民币日元</div>
+                    <div style="font-size:12px; "> 银 </div>
                     <div class="btn-hq btn-hq-up" style="font-size:18px;" goods-hq="AG">4218.00 <i class="fa fa-long-arrow-up"></i></div>
                 </div>
                 <div ng-style="selectGoodsButtonStyles['AG']" style="border: 1px solid rgb(163, 133, 95); margin-top: 0px; "></div>
             </div>
             <div class="col-xs-4" style="padding: 2px 1px 2px 1px;">
                 <div class="btn btn-block" ng-click="changeGoods('FU', 4)" style="padding: 0; line-height:24px;">
-                    <div style="font-size:12px;">人民币英镑</div>
+                    <div style="font-size:12px;"> 油 </div>
                     <div class="btn-hq btn-hq-up" style="font-size:18px;" goods-hq="FU">320.08 <i class="fa fa-long-arrow-down"></i>
                     
                     </div>
@@ -23,7 +23,7 @@
             </div>
             <div class="col-xs-4" style="padding: 2px 0 2px 1px;">
                 <div class="btn btn-block" ng-click="changeGoods('CU', 6)" style="padding: 0; line-height:24px;">
-                    <div style="font-size:12px;">人民币欧元</div>
+                    <div style="font-size:12px;"> 铜 </div>
                     <div class="btn-hq btn-hq-up" style="font-size:18px;" goods-hq="CU">32389.00 <i class="fa fa-long-arrow-up"></i></div>
                 </div>
                 <div ng-style="selectGoodsButtonStyles['CU']" style="margin-top: 0px; "></div>
