@@ -11,6 +11,7 @@ do{
 	}
 	// fclose($of1);
 
+
 	$content2 = file_get_contents("http://120.27.24.252/xh/json.php?code=ag50kgxh");//得到文件执行的结果
 	$of2 = fopen('xh/baiyin.txt','w');//创建并打开dir.txt
 	if($content2){

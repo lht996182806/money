@@ -4,21 +4,23 @@ if (isset($_GET['code'])) {
 
     if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
 
-    $appid = "wx911b7cf7b6169721";  
-    $secret = "5a00b1eea0060e858cae28482bb01747";
+    $appid = "wxe896f7d50aa5e623";  
+    $secret = "617e69f37187c0eae48b0e64b8e28bd8";
     $code = $_GET["code"];
 
     //第一步:取得openid
     $url="https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appid&secret=$secret&code=$code&grant_type=authorization_code";
     $oauth2 = getJson($url);
-
+	if(isset($oauth2['errcode'])){
+		echo $oauth2['errmsg'];exit;
+	}
     //第二步:根据全局access_token和openid查询用户信息  
     $access_token = $oauth2["access_token"];  
     $openid = $oauth2['openid'];  
     $get_user_info_url = "https://api.weixin.qq.com/sns/userinfo?access_token=$access_token&openid=$openid&lang=zh_CN";
     $userinfo = getJson($get_user_info_url);
 
-    $goUrl="http://weipan.money654.com/index.php/Home/User/login.html";
+    $goUrl="http://hljzxsp.com/index.php/Home/User/login.html";
     if ($userinfo['openid'] != '') {
          // echo $goUrl."?openid=".$userinfo['openid']."&nickname=".$userinfo['nickname'];
          //  exit;
