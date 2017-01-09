@@ -7,19 +7,19 @@
     <div class="row">
             <div class="col-xs-4" style="padding: 2px 1px 2px 0;">
                 <div class="btn btn-block" style="padding:0; line-height:24px;">
-                    <div style="font-size:12px;">中轩银</div>
+                    <div style="font-size:12px;">纪念银币</div>
                     <div class="btn-hq btn-hq-down" style="font-size:18px;" goods-hq="AG">4244.00 <i class="fa fa-long-arrow-down"></i></div>
                 </div>
             </div>
             <div class="col-xs-4" style="padding: 2px 1px 2px 1px;">
                 <div class="btn btn-block" style="padding:0; line-height:24px;">
-                    <div style="font-size:12px;">中轩油</div>
+                    <div style="font-size:12px;">成品琥珀</div>
                     <div class="btn-hq btn-hq-up" style="font-size:18px;" goods-hq="FU">320.827 <i class="fa fa-long-arrow-up"></i></div>
                 </div>
             </div>
             <div class="col-xs-4" style="padding: 2px 0 2px 1px;">
                 <div class="btn btn-block" style="padding:0; line-height:24px;">
-                    <div style="font-size:12px;">中轩铜</div>
+                    <div style="font-size:12px;">毛主席纪念章</div>
                     <div class="btn-hq btn-hq-up" style="font-size:18px;" goods-hq="CU">32481.00 <i class="fa fa-long-arrow-up"></i></div>
                 </div>
             </div>
@@ -52,12 +52,12 @@
 
 <div get-my-buy-transaction="">
 <?php if(is_array($nolist)): $i = 0; $__LIST__ = $nolist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$on): $mod = ($i % 2 );++$i;?><div class='' style='width:100%;height:50px;border-bottom:1px solid #ccc;'>
-		<div style='float:left;width:30%;height:50px;line-height:50px;font-size:16px;color:#cd0000'><div class=" ploss"><?php echo ($on["yj"]); ?></div></div>
-		<div style='width:20%;float:left;'>
+		<div style='float:left;width:20%;height:50px;line-height:50px;font-size:16px;color:#cd0000'><div class=" ploss"><?php echo ($on["yj"]); ?></div></div>
+		<div style='width:10%;float:left;'>
 			<div style='height:25px;line-height:25px;text-align:center;font-size:16px;color:green;'>买<?php if($on["ostyle"] == 1): ?>跌<?php else: ?>涨<?php endif; ?></div>
 			<div style='height:25px;line-height:25px;text-align:center;font-size:16px;'><?php echo ($on["onumber"]); ?>手</div>
 		</div>
-		<div style='width:20%;float:left;'>
+		<div style='width:35%;float:left;'>
 			<div style='height:25px;line-height:25px;text-align:center;font-size:16px;'><?php echo ($on["cname"]); ?>(<?php echo ($on["company"]); ?>)</div>
 			<div style='height:25px;line-height:25px;text-align:center;font-size:16px;'><?php echo ($on["buyprice"]); ?></div>
 		</div>

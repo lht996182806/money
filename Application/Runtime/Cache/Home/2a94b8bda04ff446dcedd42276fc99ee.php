@@ -13,12 +13,20 @@
     <link rel="stylesheet" href="/css/mobile-angular-ui-base.min.css" />
     <link rel="stylesheet" href="/css/swiper.min.css" />
     <link rel="stylesheet" href="/css/app.css" />
+	<script src="/js/jquery-1.7.1.min.js"></script>
+
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-route.min.js"></script>
     <script src="/js/mobile-angular-ui.min.js"></script>
     <script src="/js/mobile-angular-ui.gestures.min.js"></script>
     <script src="/js/swiper.min.js"></script>
+    
     <script src="/js/all.js"></script>
+	<script>
+	$('.zhang').click(function(){
+	alert(123)
+	})
+	</script>
 </head>
 <body id="weipan"
       ng-app="weipan"
@@ -63,7 +71,7 @@
     <div ui-yield-to="modals"></div>
 	
 	<!-- uiIf: modalTransactionPassword -->
-    <div class="modal" ui-if='modalTransactionPassword' ui-state='modalTransactionPassword' style="padding-top: 90px;">
+    <div class="modal"  ui-if='modalTransactionPassword' ui-state='modalTransactionPassword' style="padding-top: 90px; hide">
         <div class="modal-backdrop in"></div>
         <div class="modal-dialog">
             <div class="modal-content">
