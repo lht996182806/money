@@ -909,6 +909,7 @@ function focusInput() {
     function homeController($rootScope, $scope, $http, $location, $route, commAlertService) {
 
         $scope.vm = {
+			Type:null,
             BuyNumber: 0,
             BuyType: null,
             PayAmount: 0,
@@ -940,22 +941,32 @@ function focusInput() {
 
             $rootScope.setupNgViewSupportReload($scope, $route);
 			
-            $scope.setBuyTransactionGoods = function (transactionGoodsId, buyType, uprice) {
+            $scope.setBuyTransactionGoods = function (transactionGoodsId, buyType, uprice,ptitle) {
 				
                 $scope.currentTransactionGoodsId = transactionGoodsId;
+				
                 $scope.vm.TransactionGoods = $rootScope.TransactionGoodsMap[$scope.currentTransactionGoodsId];
                 $scope.vm.TransactionGoodsId = $scope.currentTransactionGoodsId;
                 $scope.vm.StopProfit = '0';
                 $scope.vm.StopDeficit = '0';
                 $scope.vm.BuyNumber = 1;
-                $scope.vm.BuyType = buyType;
+				
+				if(buyType==1){
+					$scope.vm.Type = '买涨'; 
+				}else{
+					$scope.vm.Type = '买跌'; 
+				}
+				$scope.vm.ptitle = ptitle;
+				$scope.vm.BuyType = buyType;
                 $scope.vm.PayAmount = uprice;
-                $scope.vm.TotalAmount = $scope.vm.BuyNumber*$scope.vm.PayAmount;
+                $scope.vm.TotalAmount = parseInt($scope.vm.BuyNumber*$scope.vm.PayAmount);
                 $scope.vm.SellCommissionAmount = 0;
+                
             };
 
             $scope.caculateBuyTransactionAmount = function () {
-            	
+            	console.log($scope.vm)
+				
                 $scope.vm.PayAmount = $scope.vm.TransactionGoods.Price * $scope.vm.BuyNumber;
                 var totalAmount = $rootScope.TransactionGoodsHQPrice[$scope.vm.TransactionGoods.Name] * $scope.vm.BuyNumber * ($scope.vm.TransactionGoods.FuctuateAmount / $scope.vm.TransactionGoods.FuctuatePrice);
                 var totalAmountStr = totalAmount.toString();
@@ -992,6 +1003,7 @@ function focusInput() {
             $scope.buy = function () {
                 $scope.btnBuyDisabled = true;
                 $http.post(weipan.url("/index.php/Home/Detailed/addorder.html"), $scope.vm).success(function (resp) {
+					//console.log(resp);
                     if (resp.success) {
                         //$rootScope.reGetUser();
                         //$rootScope.Ui.turnOff('modalBuy');
@@ -999,6 +1011,7 @@ function focusInput() {
                     	alert("购买成功");
                     	location.reload();
                     } else {
+						alert(resp.errors);
                         commAlertService.alertService().add('warning', weipan.getErrorMsg(resp.errors), 2000);
                     }
                     $scope.btnBuyDisabled = false;
@@ -1006,6 +1019,7 @@ function focusInput() {
             };
 
             $scope.changeGoods = function (goodsCode, index, time) {
+				
                 $scope.currentGoodsCode = goodsCode;
                 for (var item in $scope.selectGoodsButtonStyles) {
                     if (item === goodsCode) {
@@ -1021,6 +1035,7 @@ function focusInput() {
                 if ($scope.swiper !== null && index !== undefined) {
                     $scope.swiper.slideTo(index, time, false);
                 }
+				console.log( $scope.currentGoodsCode)
             };
 
             $scope.swiperActiveIndex = -1;
