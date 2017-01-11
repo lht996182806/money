@@ -92,8 +92,9 @@
                     data: {
                         tel:$("[name='utel']").val(),
                     },
-                    dataType: "json",
+                    
 					success:function(data){
+						console.log(data);
 						if(data=='yes'){
 							 alert('短信已经发送，请注意查收');
 							 $('#mes').attr('disabled',true);
